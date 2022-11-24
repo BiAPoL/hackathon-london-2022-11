@@ -9,11 +9,6 @@ __kernel void gradient_x(
   const int y = get_global_id(1);
   const int z = get_global_id(2);
 
-  if(x==5 && y==5){
-    float value = (float) READ_IMAGE(src, sampler, POS_src_INSTANCE(x,y,z,0)).x;
-    printf("Pixel value: %d\n", value);
-  }
-
   const float valueA = (float) READ_IMAGE(src, sampler, POS_src_INSTANCE(x-1,y,z,0)).x;
   const float valueB = (float) READ_IMAGE(src, sampler, POS_src_INSTANCE(x+1,y,z,0)).x;
 
